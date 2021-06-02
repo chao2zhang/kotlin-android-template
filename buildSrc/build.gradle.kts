@@ -9,7 +9,7 @@ repositories {
 kotlinDslPluginOptions.experimentalWarning.set(false)
 
 object Plugins {
-    const val AGP = "4.1.3"
+    const val AGP = "4.2.1"
     const val DOKKA = "1.4.20"
     const val KOTLIN = "1.4.31"
 }
