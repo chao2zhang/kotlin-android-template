@@ -22,6 +22,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -36,6 +39,19 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
+
+    // Use this block to configure different flavors
+//    flavorDimensions("version")
+//    productFlavors {
+//        create("full") {
+//            dimension = "version"
+//            applicationIdSuffix = ".full"
+//        }
+//        create("demo") {
+//            dimension = "version"
+//            applicationIdSuffix = ".demo"
+//        }
+//    }
 }
 
 dependencies {
@@ -51,6 +67,7 @@ dependencies {
     testImplementation(TestingLib.JUNIT)
 
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
+    androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT_KTX)
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RULES)
     androidTestImplementation(AndroidTestingLib.ESPRESSO_CORE)
 }

@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     id("maven-publish")
+    publish
 }
 
 android {
@@ -23,6 +24,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     buildTypes {
@@ -51,14 +55,4 @@ dependencies {
 
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_RUNNER)
     androidTestImplementation(AndroidTestingLib.ANDROIDX_TEST_EXT_JUNIT)
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-            }
-        }
-    }
 }
